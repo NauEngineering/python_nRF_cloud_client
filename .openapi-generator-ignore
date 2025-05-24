@@ -23,3 +23,4 @@
 #!docs/README.md
 
 git_push.sh
+nrf_cloud_client/configuration.py

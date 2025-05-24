@@ -263,7 +263,6 @@ nrf_cloud_client/api/system_status_api.py
 nrf_cloud_client/api/wi_fi_location_api.py
 nrf_cloud_client/api_client.py
 nrf_cloud_client/api_response.py
-nrf_cloud_client/configuration.py
 nrf_cloud_client/exceptions.py
 nrf_cloud_client/models/__init__.py
 nrf_cloud_client/models/access_point.py

@@ -149,7 +149,9 @@ class Configuration:
       The dict value is an API key prefix when generating the auth data.
     :param username: Username for HTTP basic authentication.
     :param password: Password for HTTP basic authentication.
-    :param access_token: Access token.
+    :param simple_token: Simple Access token.
+    :param json_token: JSON Web token.
+    :param evaluation_token: Service Evaluation token.
     :param server_index: Index to servers configuration.
     :param server_variables: Mapping with string values to replace variables in
       templated server configuration. The validation of enums is performed for
@@ -178,7 +180,9 @@ class Configuration:
         api_key_prefix: Optional[Dict[str, str]]=None,
         username: Optional[str]=None,
         password: Optional[str]=None,
-        access_token: Optional[str]=None,
+        simple_token: Optional[str]=None,
+        json_token: Optional[str]=None,
+        evaluation_token: Optional[str]=None,
         server_index: Optional[int]=None,
         server_variables: Optional[ServerVariablesT]=None,
         server_operation_index: Optional[Dict[int, int]]=None,
@@ -229,8 +233,14 @@ class Configuration:
         self.password = password
         """Password for HTTP basic authentication
         """
-        self.access_token = access_token
+        self.simple_token = simple_token
         """Access token
+        """
+        self.json_token = json_token
+        """JSON Web token
+        """
+        self.evaluation_token = evaluation_token
+        """Service Evaluation token
         """
         self.logger = {}
         """Logging Settings
@@ -494,26 +504,26 @@ class Configuration:
         :return: The Auth Settings information dict.
         """
         auth: AuthSettings = {}
-        if self.access_token is not None:
+        if self.simple_token is not None:
             auth['Simple Token'] = {
                 'type': 'bearer',
                 'in': 'header',
                 'key': 'Authorization',
-                'value': 'Bearer ' + self.access_token
+                'value': 'Bearer ' + self.simple_token
             }
-        if self.access_token is not None:
+        if self.json_token is not None:
             auth['JSON Web Token'] = {
                 'type': 'bearer',
                 'in': 'header',
                 'key': 'Authorization',
-                'value': 'Bearer ' + self.access_token
+                'value': 'Bearer ' + self.simple_token
             }
-        if self.access_token is not None:
+        if self.evaluation_token is not None:
             auth['Service Evaluation Token'] = {
                 'type': 'bearer',
                 'in': 'header',
                 'key': 'Authorization',
-                'value': 'Bearer ' + self.access_token
+                'value': 'Bearer ' + self.simple_token
             }
         return auth
 
