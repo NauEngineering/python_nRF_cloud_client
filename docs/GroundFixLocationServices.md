@@ -1,0 +1,14 @@
+# GroundFixLocationServices
+
+
+## Enum
+
+* `SCELL` (value: `'SCELL'`)
+
+* `MCELL` (value: `'MCELL'`)
+
+* `WIFI` (value: `'WIFI'`)
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
